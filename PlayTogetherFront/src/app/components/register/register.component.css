@@ -1,0 +1,129 @@
+.fondoP{
+    background-image: url(/fondo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background: linear-gradient(rgba(5, 7, 12, 0,55), rgba(5, 7, 12, 0,55));
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .colorido{
+    color: cyan;
+  }
+  /* footer*/
+  footer{
+    margin-top: auto;
+    color: white;
+  }
+  /* color del vacio */
+  .color{
+    border-bottom: cyan;
+    width: 100%;
+  }
+  .sindecoracion{
+    text-decoration: none;
+    color: white;
+  }
+  .sindecoracion2{
+    text-decoration: none;
+    color: cyan;
+  }
+  .colorinpu{
+    background-color: #70146D;
+    color: white;
+  }
+  ::placeholder{
+    color: white;
+  }
+  /* Inicio de sesion */
+  .formulario{
+    background-color: #290221ba;
+    border-radius: 5%;
+    border: 3px solid cyan;
+  }
+  .colorsito{
+    border: 1px solid blue;
+  }
+  .tamaño{
+    font-weight:600;
+  }
+  /* registrate */
+  .registrate {
+    align-items: center;
+    background-image: linear-gradient(120deg, fuchsia, cyan);
+    border: 0;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .registrate:active,
+  .registrate:hover {
+    outline: 0;
+  }
+
+  .registrate span {
+    background-image: linear-gradient(120deg, black, #3D3636);
+    padding: 11px 19px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+  }
+
+  .registrate:hover span {
+    background: none;
+  }
+
+  .registrate:active {
+    transform: scale(0.9);
+  }
+  /* mensaje */
+  .mensaje{
+    margin: 0;
+    color: rgba(0, 255, 255, 0.571);
+  }
+  .colorcito{
+    border-bottom: solid 2px fuchsia;
+    width: 100%;
+  }
+  .fuente{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.7rem;
+    color: cyan;
+  }
+  /* difuminado */
+  .bordeimg{
+    border-radius: 0px;
+    background: #000000ee;
+    box-shadow:  35px 35px 70px #000000,
+                 -35px -35px 70px #000000;
+  }
+
+  /* logo */
+  .logo{
+    width: 600px;
+  }
+  @media (max-width: 576px){
+    .celular{
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  }
+  @media (min-width: 1400px){
+    main{
+      margin-top: 200px;
+    }
+  }
