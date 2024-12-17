@@ -114,16 +114,18 @@
 
   /* logo */
   .logo{
-    width: 600px;
+    width: 500px;
   }
-  @media (max-width: 576px){
-    .celular{
-      display: flex !important;
-      flex-direction: column !important;
+  @media (max-width: 768px){
+  }
+  @media (max-width: 992px){
+    .logo{
+        width: 350px;
     }
-  }
-  @media (min-width: 1400px){
-    main{
-      margin-top: 200px;
+    .hola{
+        padding: 18px !important;
+    }
+    .fuente{
+        font-size: 2rem;
     }
   }
