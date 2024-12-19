@@ -10,14 +10,14 @@
           </div>
         </div>
         <div class="text-center formulario col-11 col-sm-10 col-md-7 col-lg-5 col-xl-5 col-xxl-4">
-          <form class="d-grid p-4 gap-4">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Correo electronico">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="password" placeholder="Contraseña">
-            <button class="rounded-2 iniciar"> <span class="rounded-1"><a class="sindecoracion" href="/HTML/main.html">INICIAR SESION</a></span></button>
+          <form [formGroup]="formLogin" class="d-grid p-4 gap-4">
+            <input formControlName="email" class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Correo electronico">
+            <input formControlName="password" class="rounded-2 p-2 border-0 colorinpu" type="password" placeholder="Contraseña">
+            <button (click)="login()" class="rounded-2 iniciar"> <span class="rounded-1">INICIAR SESION</span></button>
             <a href="" class="sindecoracion2">¿Olvidaste tu contraseña?</a>
             <hr class="colorcito m-0">
             <p class="mensaje">¿No tienes cuenta?</p>
-            <button class="rounded-2 border-0 registrate"><span class="text rounded-1 tamaño"><a class="sindecoracion" href="/registrate.html">REGISTRATE</a></span></button>
+            <button routerLink="/register" class="rounded-2 border-0 registrate"><span class="text rounded-1 tamaño">REGISTRATE</span></button>
           </form>
         </div>
       </div>

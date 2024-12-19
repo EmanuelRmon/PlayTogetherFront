@@ -10,17 +10,17 @@
           </div>
         </div>
         <div class="text-center formulario col-10 col-sm-8 col-md-5 col-lg-5 col-xl-5 col-xxl-4">
-          <form class="d-grid hola p-4 gap-3 overflow-hidden">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Nombre">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="apellido">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Nombre de usuario">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="password" placeholder="Correo electronico">
-            <input class="rounded-2 p-2 border-0 colorinpu" type="password" placeholder="Contraseña">
+          <form [formGroup]="formRegister" class="d-grid hola p-4 gap-3 overflow-hidden">
+            <input formControlName="name" class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Nombre">
+            <input formControlName="lastname" class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="apellido">
+            <input formControlName="Nusuario" class="rounded-2 p-2 border-0 colorinpu" type="text" placeholder="Nombre de usuario">
+            <input formControlName="email" class="rounded-2 p-2 border-0 colorinpu" type="email" placeholder="Correo electronico">
+            <input formControlName="password" class="rounded-2 p-2 border-0 colorinpu" type="password" placeholder="Contraseña">
             <hr class="colorcito m-1">
             <div class="d-flex justify-content-center gap-2 m-0 p-0">
-            <p class="text-white m-0 p-0">¿Ya tienes cuenta?</p><a class="colorido" href="./login.html">iniciar sesion</a>
+            <p class="text-white m-0 p-0">¿Ya tienes cuenta?</p><a class="colorido" routerLink="/login" href="">iniciar sesion</a>
             </div>
-            <button class="rounded-2 border-0 registrate"> <span class="text rounded-1 tamaño"><a class="sindecoracion" href="/HTML/login.html">CREAR CUENTA</a></span></button>
+            <button (click)="register()" class="rounded-2 border-0 registrate"> <span class="text rounded-1 tamaño">CREAR CUENTA</span></button>
           </form>
         </div>
       </div>
