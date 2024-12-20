@@ -179,10 +179,12 @@ export class HomeComponent {
         })
     }
 
-    addGame () {
+    addGame() {
+        console.log(this.formGame.value)
         this.favoriteGameService.addGame(this.formGame.value).subscribe({
             next: (resApi):any => {
-
+                console.log(resApi)
+                this.ngOnInit()
             },
             error:(error:any) => {
                 console.log(error);
