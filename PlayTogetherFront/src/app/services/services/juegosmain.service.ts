@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,12 +7,14 @@ import { Injectable } from '@angular/core';
 export class JuegosmainService {
 
 apiUrl = "http://localhost:3000/api"
+token = sessionStorage.getItem('token')
 
   constructor(private http: HttpClient) { }
 
 
 getFavoriteGames () {
-    return this.http.get (`${this.apiUrl}/games`)
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    return this.http.get (`${this.apiUrl}/games`, {headers})
   }
 
 deleteGame (id: string) {
@@ -32,6 +34,7 @@ getGame (id :string) {
 }
 
 searchGame (name: string) {
-    return this.http.get (`${this.apiUrl}/games/${name}`)
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    return this.http.get (`${this.apiUrl}/games/${name}`, {headers})
 }
 }
