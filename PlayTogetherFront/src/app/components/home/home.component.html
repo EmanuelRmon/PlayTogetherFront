@@ -1,1 +1,210 @@
-<p>home works!</p>
+
+<div class="body">
+    <div class="d-flex justify-content-center pt-3">
+        <button
+        class="btn btn-primary mt-3"
+        data-bs-toggle="modal"
+                data-bs-target="#addgame"
+            >
+                Add New Game!
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="addgame"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            Add New Game!
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <p class="title"></p>
+                            <form [formGroup]="formGame" class="form">
+                                <div class="input-group">
+                                    <label for="name">Name</label>
+                                    <input
+                                        formControlName="name"
+                                        type="text"
+                                        id="name"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="imagen">imagen</label>
+                                    <input
+                                        formControlName="imagen"
+                                        type="text"
+                                        id="imagen"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="disponibilidad">disponibilidad</label>
+                                    <input
+                                        formControlName="disponibilidad"
+                                        type="text"
+                                        id="disponibilidad"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="name">description</label>
+                                    <input
+                                        formControlName="description"
+                                        type="text"
+                                        id="description"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button (click)="addGame()" type="button" class="btn btn-primary">Save!</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" buscador d-flex justify-content-center mt-3 mb-3">
+            <input
+                (input)="SearchGame()"
+                [formControl]="searchGame"
+                type="text"
+                class="rounded-3 buscador col-6 placeholder-wave" placeholder="SEARCH YOUR GAMES"
+            />
+        </div>
+
+        <div
+            class="col-12 gap-4 row d-flex justify-content-center align-content-center align-items-center"
+        >
+            @for (item of favoriteGame; track $index) {
+
+            <!-- esta es la card -->
+            <div class="card card-container d-flex col-12 mt-3" style="width: 400px">
+                <img src="{{ item.imagen }}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="name_ card-title">{{ item.name }}</h5>
+                    <p class="name_ card-text">{{ item.disponibilidad }}</p>
+                    <div class="d-flex justify-content-evenly">
+                        <button
+                            (click)="updateGame(item._id)"
+                            data-bs-toggle="modal"
+                            [attr.data-bs-target]="'#' + item._id"
+                            class="boton_cards btn btn-danger border-0"
+                        >
+                            Update Game Stats
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Esto es el form de editar un product -->
+            <div
+                class="modal fade"
+                [id]="item._id"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex justify-content-between">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                Update Game Stats
+                            </h1>
+                            <button
+                                type="button"
+                                class="btn-close m-0"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="form-container">
+                                    <p class="title"></p>
+                                    <form [formGroup]="formEdit" class="form">
+                                        <div class="input-group">
+                                            <label for="name">Name</label>
+                                            <input
+                                                formControlName="name"
+                                                type="text"
+                                                id="name"
+                                                placeholder=""
+                                            />
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="imagen">imagen</label>
+                                            <input
+                                                formControlName="imagen"
+                                                type="text"
+                                                id="imagen"
+                                                placeholder=""
+                                            />
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="disponibilidad"
+                                                >disponibilidad</label
+                                            >
+                                            <input
+                                                formControlName="disponibilidad"
+                                                type="text"
+                                                id="disponibilidad"
+                                                placeholder=""
+                                            />
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="name">description</label>
+                                            <input
+                                                formControlName="description"
+                                                type="text"
+                                                id="description"
+                                                placeholder=""
+                                            />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="button"
+                                (click)="productoEditado(item._id)"
+                                class="btn btn-primary"
+                            >
+                                Update!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+
+</div>

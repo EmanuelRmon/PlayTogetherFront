@@ -5,6 +5,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { Error404Component } from './components/error404/error404.component';
 
+
+
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'login'},
     { path: 'home', title: 'PlayTogether - Home', component:HomeComponent},
@@ -13,5 +15,4 @@ export const routes: Routes = [
     { path: '404', component:Error404Component},
     { path: 'shop',title: 'PlayTogether - Shop', component:ShopComponent},
     { path: '**', pathMatch: 'full', redirectTo: '404'}
-
 ];
