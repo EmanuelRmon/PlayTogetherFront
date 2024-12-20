@@ -14,7 +14,7 @@
 }
 
 .objeto {
-    width: 100%; /* Ensure the image takes up the full width of its container */
+    width: 110%; /* Ensure the image takes up the full width of its container */
     object-fit: contain; /* Ensure the entire image is visible within the specified dimensions */
     border-radius: 5px;
     margin-top: 15px;
@@ -22,7 +22,7 @@
 
 /* Default height for large screens */
 .objeto {
-    height: 400px;
+    height: 350px;
 }
 
 /* Medium screens */
