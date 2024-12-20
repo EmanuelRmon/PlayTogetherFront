@@ -1,4 +1,4 @@
-< class=" body container mt-3">
+
 
 <div class="d-flex justify-content-center my-5">
     <button
@@ -84,12 +84,12 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center mb-3">
+<div class=" buscador d-flex justify-content-center mb-3">
     <input
         (input)="SearchGame()"
         [formControl]="searchGame"
         type="text"
-        class="rounded-3"
+        class="rounded-3 buscador col-6 placeholder-wave" placeholder="SEARCH YOUR GAMES"
     />
 </div>
 
@@ -105,12 +105,11 @@
             <h5 class="name_ card-title">{{ item.name }}</h5>
             <p class="name_ card-text">{{ item.disponibilidad }}</p>
             <div class="d-flex justify-content-evenly">
-                <!-- <button (click)="eliminar(item._id)" class="btn btn-danger">Eliminar</button> -->
                 <button
                     (click)="updateGame(item._id)"
                     data-bs-toggle="modal"
                     [attr.data-bs-target]="'#' + item._id"
-                    class="btn btn-warning"
+                    class="boton_cards btn btn-danger border-0"
                 >
                     Update Game Stats
                 </button>

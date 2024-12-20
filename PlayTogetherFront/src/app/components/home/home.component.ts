@@ -24,6 +24,7 @@ export class HomeComponent {
     formGame!: FormGroup
     formEdit!: FormGroup
     searchGame = new FormControl
+    showGames! : any
 
 
 
@@ -170,11 +171,19 @@ export class HomeComponent {
 
         this.favoriteGameService.searchGame(this.searchGame.value).subscribe({
             next:(resApi:any)=> {
-                this.getGame = resApi
+                this.favoriteGame = resApi
             },
             error:(error:any)=> {
                 console.log(error);
 
+            }
+        })
+    }
+
+    showgame () {
+        this.favoriteGameService.searchGame (this.searchGame.value).subscribe ({
+            next: (resApi:any) => {
+            this.showGames = resApi
             }
         })
     }
