@@ -1,6 +1,7 @@
-<app-navbar></app-navbar>
-    <div class="body">
-         <router-outlet/>
-    </div>
-<app-footer></app-footer>
+@if(this.loggeado){
+    <app-navbar></app-navbar>
+} @else{
+    <router-outlet />
+    <app-footer></app-footer>
+}
 

@@ -10,12 +10,20 @@ import { FooterComponent } from './components/inicio/footer/footer.component';
   imports: [
     RouterOutlet,
     NavbarComponent,
-    FooterComponent,
-
-],
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'PlayTogetherFront';
+  loggeado!: boolean
+
+  ngOnInit(){
+    if(sessionStorage.getItem('token')){
+        this.loggeado = true
+    }else{
+        this.loggeado = false
+    }
+  }
 }

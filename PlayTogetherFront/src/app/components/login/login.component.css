@@ -40,6 +40,8 @@
   }
   .tamaño{
     font-weight:600;
+    height: 100vh;
+    width: 100%;
   }
   /* iniciar sesion */
   .iniciar {
@@ -137,16 +139,19 @@
 
   /* logo */
   .logo{
-    width: 600px;
+    width: 500px;
   }
-  @media (max-width: 576px){
+  @media (max-width: 768px){
     .celular{
       display: flex !important;
       flex-direction: column !important;
     }
   }
-  @media (min-width: 1400px){
-    main{
-      margin-top: 200px;
+  @media (max-width: 992px){
+    .logo{
+        width: 300px;
+    }
+    .fuente{
+        font-size:1.8rem;
     }
   }
