@@ -31,6 +31,8 @@ export class LoginComponent {
   }
 
   login() {
+    console.log(this.formLogin.value);
+
       if (this.formLogin.valid) {
           this.userService.session(this.formLogin.value).subscribe({
               next:(resApi:any)=> {

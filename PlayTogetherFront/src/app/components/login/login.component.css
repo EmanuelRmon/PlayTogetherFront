@@ -147,17 +147,11 @@
       flex-direction: column !important;
     }
   }
-<<<<<<< HEAD
-  @media (min-width: 1400px){
-    .tamaño{
-        height: 100vh
-=======
   @media (max-width: 992px){
     .logo{
         width: 300px;
     }
     .fuente{
         font-size:1.8rem;
->>>>>>> camilofront
     }
   }

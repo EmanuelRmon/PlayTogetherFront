@@ -24,16 +24,14 @@ export class ShopComponent {
     constructor(private router : Router){
 
     }
-
     ngOnInit () {
+
+        if (sessionStorage.getItem('token') == undefined || null) {
+            this.router.navigate(['login'])
+        }
         this.shopService.getProducts().subscribe({
             next:(resApi: any)=> {
                 this.products = resApi
-                console.log(resApi);
-                console.log(this.products);
-
-
-
             },
             error:(error:any)=>{
                 console.log(error);
@@ -55,6 +53,7 @@ export class ShopComponent {
             }
         })
     }
+
 
 
 }

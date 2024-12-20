@@ -6,16 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class ShopService {
     apiUrl: string = "http://localhost:3000/api"
+    token = localStorage.getItem('token')
   constructor(private http : HttpClient) { }
 
-    getProducts () {
-        return this.http.get(`${this.apiUrl}/products`,)
+  getProducts () {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    return this.http.get(`${this.apiUrl}/products`, {headers})
     }
-
     busqueda(nombre:string) {
-        return this.http.get(`${this.apiUrl}/products/${nombre}`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+
+        return this.http.get(`${this.apiUrl}/products/${nombre}`, {headers})
 
     }
+
 
 }
 
