@@ -16,4 +16,13 @@ import { FooterComponent } from './components/inicio/footer/footer.component';
 })
 export class AppComponent {
   title = 'PlayTogetherFront';
+  loggeado!: boolean
+
+  ngOnInit(){
+    if(sessionStorage.getItem('token')){
+        this.loggeado = true
+    }else{
+        this.loggeado = false
+    }
+  }
 }
