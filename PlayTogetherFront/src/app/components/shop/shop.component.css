@@ -14,11 +14,43 @@
 }
 
 .objeto {
-    height: 400px; /* Set a fixed height */
-    width: 80%; /* Ensure the image takes up the full width of its container */
-    object-fit: cover; /* Ensure the image covers the specified dimensions without distortion */
+    width: 100%; /* Ensure the image takes up the full width of its container */
+    object-fit: contain; /* Ensure the entire image is visible within the specified dimensions */
     border-radius: 5px;
     margin-top: 15px;
+}
+
+/* Default height for large screens */
+.objeto {
+    height: 400px;
+}
+
+/* Medium screens */
+@media (max-width: 1200px) {
+    .objeto {
+        height: 270px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 992px) {
+    .objeto {
+        height: 300px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 768px) {
+    .objeto {
+        height: 250px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 576px) {
+    .objeto {
+        height: 200px;
+    }
 }
 
 .compra {
