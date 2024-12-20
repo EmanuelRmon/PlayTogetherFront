@@ -32,6 +32,7 @@ export class ShopComponent {
         this.shopService.getProducts().subscribe({
             next:(resApi: any)=> {
                 this.products = resApi
+                console.log(resApi)
             },
             error:(error:any)=>{
                 console.log(error);

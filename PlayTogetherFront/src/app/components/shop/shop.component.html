@@ -1,24 +1,21 @@
-<div class="body">
-
-    <div *ngIf="products">
-        <div>
-            <input [formControl]="busqueda" (input)="buscar()" type="text">
-        </div>
-        <div class="container mt-5">
-            <div class="col-12 gap-4 row d-flex justify-content-center align-content-center align-items-center">
-                <div *ngFor="let item of products; let i = index" class="col-12 col-md-2 col-lg-4 col-xl-4 col-sm-2 mb-4 row-6">
-                    <div class="card h-100">
-                        <img [src]="item.imagen" class="objeto card-img-top mt-3" alt="...">
-                        <div class="card-body col-11">
-                            <p class="card-text">
-                                {{item.nombre}}
-                                <br><h4>{{item.precio}}</h4>
-                            </p>
-                            <div class="d-grid gap-2">
-                                <button class="compra btn col-11" type="button">
-                                    <a target="_blank" href="">COMPRALO EN LA TIENDA</a>
-                                </button>
-                            </div>
+<div class="body" *ngIf="products">
+    <div class="pt-5 d-flex justify-content-center">
+        <input [formControl]="busqueda" (input)="buscar()" type="text" class="form-control w-50">
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div *ngFor="let item of products; let i = index" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+                <div class="card h-100">
+                    <img [src]="item.imagen" class="objeto card-img-top mt-3" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{item.nombre}}
+                            <br><h4>{{item.precio}}</h4>
+                        </p>
+                        <div class="d-grid gap-2">
+                            <button class="compra btn btn-primary" type="button">
+                                <a target="_blank" [href]="item.link" class="text-decoration-none">COMPRALO EN LA TIENDA</a>
+                            </button>
                         </div>
                     </div>
                 </div>

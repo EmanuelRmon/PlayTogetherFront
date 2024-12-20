@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class ShopService {
     apiUrl: string = "http://localhost:3000/api"
-    token = localStorage.getItem('token')
+    token = sessionStorage.getItem('token')
   constructor(private http : HttpClient) { }
 
   getProducts () {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
     return this.http.get(`${this.apiUrl}/products`, {headers})
     }
+
     busqueda(nombre:string) {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
 

@@ -1,7 +1,8 @@
-.body{
-    background-color: rgb(55, 3, 53) ;
+.body {
+    background-color: rgb(55, 3, 53);
 }
-.card{
+
+.card {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -11,40 +12,34 @@
     color: white;
     border: 2px solid cyan;
 }
-.objeto{
-    height: 345px;
-    width: 300px;
+
+.objeto {
+    height: 400px; /* Set a fixed height */
+    width: 80%; /* Ensure the image takes up the full width of its container */
+    object-fit: cover; /* Ensure the image covers the specified dimensions without distortion */
     border-radius: 5px;
     margin-top: 15px;
 }
 
-.compra{
-  background-color: cyan;
-}
-a{
-  text-decoration: none;
-  color: black;
-}
-a:hover{
-  color: white;
-}
-.compra:hover{
-  background-color: fuchsia;
-}
-.nxtpag{
-  border: solid 2px cyan;
-}
-.nxt{
-  border: solid 2px cyan;
-  border-radius: 5px;
-  background-color: rgb(50, 50, 80)
-}
-.nxt:hover{
-  background-color: fuchsia;
+.compra {
+    background-color: cyan;
 }
 
-/* @media(min-width: 775px){
-    .objeto{
-        width: 100px;
-    }
-} */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.compra:hover {
+    background-color: fuchsia;
+}
+
+.nxtpag {
+    border: solid 2px cyan;
+}
+
+.nxt {
+    border: solid 2px cyan;
+    border-radius: 5px;
+    background-color: rgb(50, 50, 80);
+}
