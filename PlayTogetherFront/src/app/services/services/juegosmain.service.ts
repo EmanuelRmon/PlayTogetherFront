@@ -26,8 +26,12 @@ addGame (body: any) {
     return this.http.post(`${localUrl}/addgame`, body)
 }
 
-updateGame (id :string, body:any) {
+productoEditado (id: string, body: any) {
     return this.http.put(`${localUrl}/updategame/${id}`, body)
+}
+
+updateGame (id :string, body:any) {
+    return this.http.get(`${localUrl}/game/${id}`)
 }
 
 getGame (id :string) {
