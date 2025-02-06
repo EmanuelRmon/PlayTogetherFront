@@ -16,11 +16,4 @@ export class NewsService {
     return this.httpClient.get(`${localUrl}/news`)
     }
 
-    busqueda(nombre:string) {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-
-        return this.httpClient.get(`${localUrl}/products/${nombre}`, {headers})
-
-    }
-
 }

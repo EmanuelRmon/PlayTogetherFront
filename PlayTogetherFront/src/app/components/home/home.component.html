@@ -1,10 +1,13 @@
 <div class="body">
+    <div>
+        <h1 class="d-flex justify-content-center text-white">🔥 ULTIMAS NOTICIAS GAMING 🔥</h1>
+    </div>
     <div class="pt-5 d-flex justify-content-center">
-        <input [formControl]="busqueda" (input)="buscar()" placeholder="Buscar una noticia" type="text" class="form-control w-50">
+        <!-- <input [formControl]="busqueda" (input)="buscar()" placeholder="Buscar una noticia" type="text" class="form-control w-50"> -->
     </div>
     <div class="container">
         <div *ngFor="let new of news; let i = index" class="row justify-content-center">
-            <div class="card mb-3 col-12 col-md-10 col-lg-8">
+            <div class="card news-card mb-3 col-12 col-md-10 col-lg-8">
                 <div class="row g-0">
                     <div class="col-12 col-md-4">
                         <img src="{{new.imagen}}" class="img-fluid card-img-top" alt="...">

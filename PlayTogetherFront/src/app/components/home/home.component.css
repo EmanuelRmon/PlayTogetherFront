@@ -3,12 +3,19 @@
     padding: 20px;
 }
 
-.card {
+.news-card {
     background-color: black;
     color: white;
     border: 2px solid cyan;
     border-radius: 10px;
     margin: 20px 0; /* Add margin to the top and bottom */
+    width: 100%; /* Full width by default */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
@@ -22,7 +29,6 @@
 .card-img-top {
     height: 100%; /* Make the image fill the height of the card */
     object-fit: cover; /* Ensure the image covers the entire area */
-    border-radius: 10px 10px 0 0; /* Adjust border-radius if needed */
 }
 
 .text-body-secondary {
@@ -31,5 +37,48 @@
 
 .card-body {
     background-color: black;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .news-card {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .card-img-top {
+        height: auto; /* Adjust image height on small screens */
+    }
+
+    .modal-content {
+        width: 90%; /* Adjust modal width on small screens */
+        margin: auto;
+    }
+
+    .modal-body {
+        padding: 10px; /* Reduce padding on small screens */
+    }
+
+    .form-container {
+        width: 100%; /* Full width form container on small screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .news-card {
+        width: 80%; /* 80% width on medium screens */
+    }
+
+    .modal-content {
+        width: 70%; /* Adjust modal width on medium screens */
+        margin: auto;
+    }
+
+    .modal-body {
+        padding: 15px; /* Adjust padding on medium screens */
+    }
+
+    .form-container {
+        width: 80%; /* 80% width form container on medium screens */
+    }
 }

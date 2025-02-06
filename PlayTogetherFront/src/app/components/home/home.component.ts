@@ -38,19 +38,4 @@ export class HomeComponent {
             }
         })
     }
-
-    buscar () {
-        console.log(this.busqueda.value);
-
-        this.newsService.busqueda(this.busqueda.value).subscribe({
-            next:(resApi:any)=> {
-                this.news = resApi
-            },
-            error:(error:any)=> {
-                console.log(error);
-
-            }
-        })
-    }
-
 }

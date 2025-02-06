@@ -1,12 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { JuegosmainService } from '../../services/services/juegosmain.service';
 import { UserService } from '../../services/user/user.service';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { log } from 'console';
+import { EmailValidator, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
-import { last } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +17,8 @@ import { last } from 'rxjs';
 export class ProfileComponent {
     favoriteGame!: any
     favoriteGameService = inject (JuegosmainService)
+    userService = inject (UserService)
+
 
     formGame!: FormGroup
     formEdit!: FormGroup
@@ -28,7 +28,7 @@ export class ProfileComponent {
 
 
 
-    constructor(private fb : FormBuilder, private router : Router, private userService : UserService) {
+    constructor(private fb : FormBuilder, private router : Router) {
         this.formGame = this.fb.group({
             name: ['', [Validators.required, Validators.minLength(3)]],
             imagen: ['', [Validators.required]],
@@ -40,6 +40,14 @@ export class ProfileComponent {
             imagen: ['', [Validators.required]],
             disponibilidad: ['', [Validators.required]],
             description: ['', [Validators.required]],
+        })
+        this.formUser = this.fb.group({
+            name: ['', [Validators.required]],
+            lastname: ['',],
+            email: ['', [Validators.required]],
+            password: ['', [Validators.required]],
+            imagen: ['', [Validators.required]],
+            Nusuario: ['', [Validators.required]],
         })
     }
 
@@ -127,7 +135,7 @@ export class ProfileComponent {
               }).then((result) => {
                 if (result.isConfirmed) {
 
-                  this.favoriteGameService.updateGame(id, this.formEdit.value).subscribe({
+                  this.favoriteGameService.productoEditado(id, this.formEdit.value).subscribe({
                     next:(resApi:any)=> {
                         Swal.fire("Saved!", "", "success");
                         this.ngOnInit ()
@@ -187,24 +195,69 @@ export class ProfileComponent {
         })
     }
 
-    addGame() {
-        console.log(this.formGame.value)
-        this.favoriteGameService.addGame(this.formGame.value).subscribe({
-            next: (resApi):any => {
-                console.log(resApi)
-                this.ngOnInit()
-            },
-            error:(error:any) => {
-                console.log(error);
-
-            }
-        })
-
+    addGame () {
+        if (this.formGame.valid) {
+            this.favoriteGameService.addGame(this.formGame.value).subscribe({
+                next:(resApi:any)=> {
+                    this.formGame.reset()
+                    this.ngOnInit()
+                    Swal.fire({
+                        icon:"success",
+                        title:"Creado!",
+                        text:"Nuevo producto añadido!"
+                    })
+                },
+                error:(error:any)=> {
+                    console.log(error);
+                    Swal.fire({
+                        icon:"error",
+                        title:"No Creado!",
+                        text:"No se ha añadido el producto!"
+                    })
+                }
+            })
+        } else {
+            Swal.fire({
+                icon:"error",
+                title:"Form Invalido!",
+                text:"Diligencie correctamente el formulario"
+            })
+        }
     }
 
+    saveUser(email: string) {
+        if (this.formUser.valid) {
+          Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Save",
+            denyButtonText: `Don't save`
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.userService.updateUser(email, this.formUser.value).subscribe({
+                next: (resApi: any) => {
+                  Swal.fire("Saved!", "", "success");
+                  this.ngOnInit();
+                },
+                error: (error) => {
+                  console.log(error);
+                  Swal.fire("Changes are not saved", "", "info");
+                }
+              })
+            } else if (result.isDenied) {
+              Swal.fire("Changes are not saved", "", "info");
+            }
+          });
+        } else {
+          Swal.fire({
+            title: "Formulario incorrecto",
+            icon: "warning"
+            });
+        }}
 
-    getUser(id: string) {
-        this.userService.getOneUser(id).subscribe({
+       getOneUser(email: string) {
+        this.userService.getOneUser(email).subscribe({
           next: (resApi: any) => {
             this.formUser.setValue({
                 name: resApi.name,
@@ -220,7 +273,5 @@ export class ProfileComponent {
             console.log(error);
           }
         })
-      }
-
-
+        }
 }

@@ -28,16 +28,8 @@ export class UserService {
         return this.http.put(`${localUrl}/updateUser/${id}`, body)
     }
 
-    getOneUser (id :string) {
-        return this.http.get(`${localUrl}/user/${id}`)
-    }
-
-    getLogedUser (id :string) {
-        return this.http.get(`${localUrl}/loged-user/${id}`, {
-            headers: {
-                Authorization: `Bearer ${this.token}`
-            }
-        })
+    getOneUser (email :string) {
+        return this.http.get(`${localUrl}/user/${email}`)
     }
 
     session(body: any) {
