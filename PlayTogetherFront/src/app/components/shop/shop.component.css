@@ -1,0 +1,77 @@
+.body {
+    background-color: rgb(55, 3, 53);
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    color: white;
+    border: 2px solid cyan;
+}
+
+.objeto {
+    width: 110%; /* Ensure the image takes up the full width of its container */
+    object-fit: contain; /* Ensure the entire image is visible within the specified dimensions */
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Default height for large screens */
+.objeto {
+    height: 350px;
+}
+
+/* Medium screens */
+@media (max-width: 1200px) {
+    .objeto {
+        height: 270px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 992px) {
+    .objeto {
+        height: 300px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 768px) {
+    .objeto {
+        height: 250px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 576px) {
+    .objeto {
+        height: 200px;
+    }
+}
+
+.compra {
+    background-color: cyan;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.compra:hover {
+    background-color: fuchsia;
+}
+
+.nxtpag {
+    border: solid 2px cyan;
+}
+
+.nxt {
+    border: solid 2px cyan;
+    border-radius: 5px;
+    background-color: rgb(50, 50, 80);
+}

@@ -10,6 +10,93 @@
     height: 35px;
   }
 
+  /* Modal Background */
+.modal-content {
+    background-color: black;
+    color: white;
+    border: 2px solid cyan;
+}
+
+/* Modal Header */
+.modal-header {
+    border-bottom: 2px solid cyan;
+}
+
+.modal-title {
+    color: cyan;
+}
+
+/* Close Button */
+.btn-close {
+    background-color: fuchsia;
+    border: none;
+    outline: none;
+}
+
+.btn-close:hover {
+    background-color: cyan;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: cyan;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    color: cyan;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.input-group input:focus {
+    border-color: fuchsia;
+    outline: none;
+}
+
+/* Submit Button */
+.btn-primary {
+    background-color: cyan;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: fuchsia;
+    color: white;
+}
+
   /* termina boton de busqueda */
   .bordeado{
       border-bottom: 2px solid cyan;

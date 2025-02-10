@@ -31,11 +31,13 @@ export class LoginComponent {
   }
 
   login() {
+    console.log(this.formLogin.value);
+
       if (this.formLogin.valid) {
           this.userService.session(this.formLogin.value).subscribe({
               next:(resApi:any)=> {
                   let token = resApi
-                  sessionStorage.setItem('token', JSON.stringify(token))
+                  sessionStorage.setItem('token', token)
                   Swal.fire({
                       icon:"success",
                       title:"Bienvenido!",
