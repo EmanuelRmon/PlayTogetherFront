@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http : HttpClient) {}
 
     getUsers () {
-        return this.http.get(`${localUrl}/users`)
+        return this.http.get(`${amazonUrl}/users`)
     }
 
     hasToken(): boolean {
@@ -21,22 +21,22 @@ export class UserService {
       }
 
     deleteUser (id: string) {
-        return this.http.delete(`${localUrl}/deleteUser/${id}`)
+        return this.http.delete(`${amazonUrl}/deleteUser/${id}`)
     }
 
     addUser (body: any) {
-        return this.http.post(`${localUrl}/addUser`, body)
+        return this.http.post(`${amazonUrl}/addUser`, body)
     }
 
     updateUser (id :string, body:any) {
-        return this.http.put(`${localUrl}/updateUser/${id}`, body)
+        return this.http.put(`${amazonUrl}/updateUser/${id}`, body)
     }
 
     getOneUser (email :string) {
-        return this.http.get(`${localUrl}/user/${email}`)
+        return this.http.get(`${amazonUrl}/user/${email}`)
     }
 
     session(body: any) {
-        return this.http.post(`${localUrl}/validacion`, body)
+        return this.http.post(`${amazonUrl}/validacion`, body)
     }
 }

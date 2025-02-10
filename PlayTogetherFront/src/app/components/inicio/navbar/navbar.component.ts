@@ -7,7 +7,6 @@ import { UserService } from '../../../services/user/user.service';
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    RouterLink
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
