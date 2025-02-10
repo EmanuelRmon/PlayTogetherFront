@@ -15,31 +15,31 @@ token = sessionStorage.getItem('token')
 
 getFavoriteGames () {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-    return this.http.get (`${localUrl}/games`, {headers})
+    return this.http.get (`${amazonUrl}/games`, {headers})
   }
 
 deleteGame (id: string) {
-    return this.http.delete(`${localUrl}/deletegame/${id}`)
+    return this.http.delete(`${amazonUrl}/deletegame/${id}`)
 }
 
 addGame (body: any) {
-    return this.http.post(`${localUrl}/addgame`, body)
+    return this.http.post(`${amazonUrl}/addgame`, body)
 }
 
 productoEditado (id: string, body: any) {
-    return this.http.put(`${localUrl}/updategame/${id}`, body)
+    return this.http.put(`${amazonUrl}/updategame/${id}`, body)
 }
 
 updateGame (id :string, body:any) {
-    return this.http.get(`${localUrl}/game/${id}`)
+    return this.http.get(`${amazonUrl}/game/${id}`)
 }
 
 getGame (id :string) {
-    return this.http.get(`${localUrl}/game/${id}`)
+    return this.http.get(`${amazonUrl}/game/${id}`)
 }
 
 searchGame (name: string) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-    return this.http.get (`${localUrl}/games/${name}`, {headers})
+    return this.http.get (`${amazonUrl}/games/${name}`, {headers})
 }
 }

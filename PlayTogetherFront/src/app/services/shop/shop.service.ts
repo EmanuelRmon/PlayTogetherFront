@@ -12,13 +12,13 @@ export class ShopService {
 
   getProducts () {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-    return this.http.get(`${localUrl}/products`, {headers})
+    return this.http.get(`${amazonUrl}/products`, {headers})
     }
 
     busqueda(nombre:string) {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
 
-        return this.http.get(`${localUrl}/products/${nombre}`, {headers})
+        return this.http.get(`${amazonUrl}/products/${nombre}`, {headers})
 
     }
 

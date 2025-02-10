@@ -13,7 +13,7 @@ export class NewsService {
 
   getNews () {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-    return this.httpClient.get(`${localUrl}/news`)
+    return this.httpClient.get(`${amazonUrl}/news`)
     }
 
 }
