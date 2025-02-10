@@ -16,6 +16,10 @@ export class UserService {
         return this.http.get(`${localUrl}/users`)
     }
 
+    hasToken(): boolean {
+        return !!sessionStorage.getItem('token');
+      }
+
     deleteUser (id: string) {
         return this.http.delete(`${localUrl}/deleteUser/${id}`)
     }
